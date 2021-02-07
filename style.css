@@ -1,0 +1,26 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+#display-meal{
+    grid-gap: 30px 50px;
+    /* margin: auto; */
+}
+#display-meal img{
+    /* width: 200px; */
+    /* background-size: cover; */
+}
+#display-details-info img{
+    width: 600px;
+    height: 400px;
+}
+#display-details{
+    display: none;
+    width: 800px;
+    position: absolute;
+    top: 25%;
+    left: 30%;
+    z-index: 9999;
+    background: orangered;
+    border-radius: 10px;
+    padding: 20px;
+}
