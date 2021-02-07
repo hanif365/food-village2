@@ -1,6 +1,11 @@
+/*  */
 menuOrder = () => {
-    const menu = document.getElementById('search-meal-field').value;
+    let menu = document.getElementById('search-meal-field').value;
     console.log(menu);
+    if(menu == ""){
+        errorControl2();
+        return;
+    }
     mealName(menu);
     document.getElementById('search-meal-field').value = "";
 }
@@ -10,7 +15,7 @@ mealName = (mealName) => {
         .then(response => response.json())
         .then(data => {
             if (data.meals == null) {
-                console.log("HIIII");
+                // console.log("HIIII");
                 errorControl();
                 return;
             }
@@ -77,7 +82,11 @@ errorControl = () => {
     document.getElementById('error-message').style.display = "block";
 }
 
+errorControl2 = () =>{
+    document.getElementById('error-message2').style.display = "block";
+}
 errorClose = () => {
     document.getElementById('error-message').style.display = "none";
+    document.getElementById('error-message2').style.display = "none";
 }
 
