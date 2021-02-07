@@ -23,7 +23,6 @@
 </head>
 
 <body>
-
     <header>
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -47,69 +46,69 @@
         </div>
     </header>
 
-    <section>
-        <div class="container py-5 w-50">
-            <div class="row">
-                <div class="col">
-                    <div class="input-group mb-3">
-                        <input id="search-meal-field" type="text" class="form-control" placeholder="Search for meal...">
-                        <button id="search-meal-btn" onclick="menuOrder()" class="btn btn-outline-secondary"
-                            type="button">Button</button>
+    <main>
+        <section>
+            <div class="container py-5 w-50">
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input id="search-meal-field" type="text" class="form-control"
+                                placeholder="Search for meal...">
+                            <button id="search-meal-btn" onclick="menuOrder()" class="btn btn-outline-secondary"
+                                type="button">Button</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="display-details">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div id="display-details-info">
-                        <img id="show-img" src="" alt="">
-                        <h3>Food Origin : <span id="food-area"></span></h3>
-                        <h4>Ingredients</h4>
-                        <ul id="ul-container">
-                            <li id="li-ingredient-1"></li>
-                            <li id="li-ingredient-2"></li>
-                            <li id="li-ingredient-3"></li>
-                            <li id="li-ingredient-4"></li>
-                            <li id="li-ingredient-5"></li>
-                            <li id="li-ingredient-6"></li>
-                        </ul>
+        <section id="display-details">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div id="display-details-info">
+                            <img id="show-img" src="" alt="">
+                            <h3>Food Origin : <span id="food-area"></span></h3>
+                            <h4>Ingredients</h4>
+                            <ul id="ul-container">
+                                <li id="li-ingredient-1"></li>
+                                <li id="li-ingredient-2"></li>
+                                <li id="li-ingredient-3"></li>
+                                <li id="li-ingredient-4"></li>
+                                <li id="li-ingredient-5"></li>
+                                <li id="li-ingredient-6"></li>
+                            </ul>
+                        </div>
+                        <h4>Making Process :</h4>
+                        <p id="making-process"></p>
+                        <button id="close-btn" onclick="closeDisplayDetails()" class="btn btn-success">Close</button>
                     </div>
-                    <h4>Making Process :</h4>
-                    <p id="making-process"></p>
-                    <button id="close-btn" onclick="closeDisplayDetails()" class="btn btn-success">Close</button>
+
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section>
-        <div class="container">
-
-            <div id="display-meal" class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-
+        <section>
+            <div class="container">
+                <div id="display-meal" class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4"></div>
             </div>
+        </section>
 
-        </div>
-    </section>
-
-    <section id="error-message">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div id="error">
-                        <img src="images/error.png" alt="Error Message">
-                        <h1>Your Search menu is not available now!</h1>
-                        <button onclick="errorClose()" id="error-close-btn">Close</button>
+        <section id="error-message">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div id="error">
+                            <img src="images/error.png" alt="Error Message">
+                            <h1>Your Search menu is not available now!</h1>
+                            <button onclick="errorClose()" id="error-close-btn">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
+
 
 
     <script src="main.js"></script>
