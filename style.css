@@ -5,10 +5,7 @@ body{
     grid-gap: 30px 50px;
     /* margin: auto; */
 }
-#display-meal img{
-    /* width: 200px; */
-    /* background-size: cover; */
-}
+
 #display-details-info img{
     width: 600px;
     height: 400px;
