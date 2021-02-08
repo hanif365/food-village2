@@ -10,17 +10,25 @@ body {
 }
 
 /*********** Navbar logo style ***********/
-#navbar-section{
-    background: rgba(26, 133, 139, 0.705);
+
+#navbar-section {
+    /* background: rgba(26, 133, 139, 0.705); */
+    background: rgba(18, 182, 190, 0.705);
     position: sticky;
     top: 0;
     z-index: 10000;
 }
-.navbar{
-    color: crimson !important;
+
+.navbar-nav a {
+    transition: all 800ms;
 }
+
+.navbar-nav a:hover {
+    color: #fff !important;
+}
+
 #logo {
-    transition: all 600ms;
+    transition: all 800ms;
     font-size: 25px;
 }
 
@@ -78,19 +86,20 @@ a {
     padding: 20px;
     cursor: pointer;
 }
-#ul-container li{
+
+#ingredient-container li {
     list-style: none;
 }
 
 /********************** Error Message Section **********************/
 
-#error-message, #error-message2 {
+#error-message, #error-message2, #error-handling {
     display: none;
     position: absolute;
     width: 600px;
     top: 30%;
     left: 25%;
-    z-index: 9998;
+    z-index: 9999;
     background-color: aquamarine;
     border-radius: 10px;
     padding: 20px;
@@ -122,21 +131,22 @@ a {
 
 /******************************* Footer Section *******************************/
 
-#footer-section{
+#footer-section {
     background: rgba(30, 118, 124, 0.637);
     padding: 10px;
     text-align: center;
     color: #fff;
     display: none;
 }
-#footer-section a{
+
+#footer-section a {
     color: yellow;
     transition: all 600ms;
 }
-#footer-section a:hover{
+
+#footer-section a:hover {
     color: rgba(250, 4, 217, 0.993);
 }
-
 
 /**************************** Bootom To Top Button *****************************/
 
@@ -150,6 +160,7 @@ a {
     border-radius: 5px;
     transition: all 500ms;
 }
+
 .bottom-to-top:hover {
     background: #8a04f8;
     color: #fff;

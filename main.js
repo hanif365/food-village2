@@ -11,7 +11,7 @@ const menuOrder = () => {
     // To display footer section 
     setTimeout(() => {
         document.getElementById('footer-section').style.display = "block";
-    }, 5000);
+    }, 15000);
 
 }
 
@@ -24,6 +24,8 @@ const mealName = (mealName) => {
                 return;
             }
 
+            document.getElementById('display-meal').innerHTML = "";     // To clear previous meal item.
+
             const showMeal = document.getElementById('display-meal');
             const value = data.meals;
 
@@ -35,7 +37,7 @@ const mealName = (mealName) => {
                     <div id="${menuItem.idMeal}" onclick = 'MealDetails("${menuItem.idMeal}")' class="card meal-item" style="width: 22rem;">
                         <img src="${menuItem.strMealThumb}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <p class="card-text meal-name">${menuItem.strMeal}</p>
+                            <p class="card-text meal-name text-center text-uppercase">${menuItem.strMeal}</p>
                         </div>
                     </div>
                 `;          // Another function call in the above and pass a menuID.
@@ -44,7 +46,8 @@ const mealName = (mealName) => {
                 showMeal.appendChild(mealItem);
             });
         })
-}
+        .catch(error => displayError('Something Went wrong. Please try again later!')); // If error occur when loading data, 
+}                                                                                       // then show an error message.
 
 const MealDetails = (id) => {
     document.getElementById('display-details').style.display = "block"; // display display-details section which was hide using css
@@ -63,61 +66,28 @@ const MealDetails = (id) => {
 
             document.getElementById('making-process').innerText = data.meals[0].strInstructions;    // Display making process.
 
-
-            ///////////////////////////////////////
-            for (i = 1; i <= 20; i++) {
-                // const content = data['meals']['0'][`strMeasure${i}`] + ' ' + data['meals']['0'][`strIngredient${i}`];
-                // console.log(content);
+            countIngredient = 0;
+            for (i = 1; i <= 20; i++) {         // Given maximum 20 ingredients individual meal item.
                 if (data['meals']['0'][`strIngredient${i}`] == "") {    // if ingredient field empty then break and we get total 
                     break;                                              // given ingredient number.
                 }
+                countIngredient++;
             }
 
-            /////////////////////////////////////////////////// new start
-            const ulContainer = document.getElementById('ul-container');
-            for (k = 1; k <= count; k++) {
-                // ingredient(k);
-                console.log(k);
+            const ingredientContainer = document.getElementById('ingredient-container');
+            for (j = 1; j <= countIngredient; j++) {
+                const li = document.createElement('li');    // Create new 'li'.
+                li.innerHTML = '<i class="fas fa-check-square"></i> ' + data['meals']['0'][`strMeasure${j}`] + ' ' + data['meals']['0'][`strIngredient${j}`];
+                ingredientContainer.appendChild(li);
 
-                const li = document.createElement('li');
-                li.innerText = data['meals']['0'][`strMeasure${k}`] + ' ' + data['meals']['0'][`strIngredient${k}`];
-                ulContainer.appendChild(li);
-
-                document.getElementById('close-btn').addEventListener('click',function(){       
+                document.getElementById('close-btn').addEventListener('click', function () {
                     li.innerText = "";      // use to remove ingredients after close.
                 })
 
             }
-
-
-            /////////////////////////////////////////////////New end
-            /*
-                        for (j = 1; j <= count; j++) {
-                            ingredient(j);
-                            console.log(j);
-            
-                            ///////////////////////////////////////
-            
-            
-            
-                            // ingredient(1);  // Function call to show ingredients details
-                            // ingredient(2);
-                            // ingredient(3);
-                            // ingredient(4);
-                            // ingredient(5);
-                            // ingredient(6);
-                            // ingredient(7);
-                            // ingredient(8);
-                            // ingredient(9);
-                            // ingredient(10);
-            
-                            function ingredient(id) {
-                                document.getElementById(`li-ingredient-${id}`).innerHTML = data['meals']['0'][`strMeasure${id}`] + ' ' + data['meals']['0'][`strIngredient${id}`];  // Merge two property and make a complete ingredients details.
-                            }
-                        }   // pore add korsi for loop er sathe.
-                        */
         })
-}
+        .catch(error => displayError('Something Went wrong. Please try again later!!'));    // If error occur when loading data,
+}                                                                                           // then show an error message.
 
 
 
@@ -139,9 +109,14 @@ const errorClose = () => {        // Hide error message section when clicked clo
     document.getElementById('error-message2').style.display = "none";
 }
 
-const clearHistory = () => {
-    document.getElementById('display-meal').innerHTML = "";
-    document.getElementById('footer-section').style.display = "none";  // To hide footer section after clicking input field.
+const clearError = () => {
+    document.getElementById('error-handling').style.display = "none";   // To hide footer section  and error message
+    document.getElementById('footer-section').style.display = "none";   // after clicking input field.
 }
 
-
+const displayError = (error) => {                                       // Display an error message if error arise when
+    const errorMessage = document.getElementById('error-handling');     // loading data.
+    errorMessage.innerHTML = error;
+    errorMessage.style.display = "block";
+    document.getElementById('footer-section').style.opacity = "0";
+}
