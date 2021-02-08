@@ -11,7 +11,7 @@ const menuOrder = () => {
     // To display footer section 
     setTimeout(() => {
         document.getElementById('footer-section').style.display = "block";
-    }, 15000);
+    }, 40000);      // delay to load footer section
 
 }
 
@@ -71,19 +71,18 @@ const MealDetails = (id) => {
                 if (data['meals']['0'][`strIngredient${i}`] == "") {    // if ingredient field empty then break and we get total 
                     break;                                              // given ingredient number.
                 }
-                countIngredient++;
+                countIngredient++;              // Every time 'countIngredient' increment by 1 until terminating the loop.
             }
 
             const ingredientContainer = document.getElementById('ingredient-container');
             for (j = 1; j <= countIngredient; j++) {
-                const li = document.createElement('li');    // Create new 'li'.
-                li.innerHTML = '<i class="fas fa-check-square"></i> ' + data['meals']['0'][`strMeasure${j}`] + ' ' + data['meals']['0'][`strIngredient${j}`];
-                ingredientContainer.appendChild(li);
+                const li = document.createElement('li');     // Create new 'li'.
+                li.innerHTML = '<i class="fas fa-check-square"></i> ' + data['meals']['0'][`strMeasure${j}`] + ' ' + data['meals']['0'][`strIngredient${j}`];                  // Assign ingredient value into li element.
+                ingredientContainer.appendChild(li);         // Append new child 'li'.
 
                 document.getElementById('close-btn').addEventListener('click', function () {
-                    li.innerText = "";      // use to remove ingredients after close.
+                    li.innerHTML = "";      // use to remove ingredients after close.
                 })
-
             }
         })
         .catch(error => displayError('Something Went wrong. Please try again later!!'));    // If error occur when loading data,
