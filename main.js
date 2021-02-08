@@ -1,4 +1,4 @@
-/* Customer order a meal and if empty input enter then show a error message */
+//Customer order a meal and if empty input enter then show a error message
 const menuOrder = () => {
     let menu = document.getElementById('search-meal-field').value;
     if (menu == "") {
@@ -30,11 +30,10 @@ const mealName = (mealName) => {
             const value = data.meals;
 
             value.forEach(menuItem => {
-                console.log(menuItem);
                 const mealItem = document.createElement('div');     // Create a div
                 mealItem.className = 'col';     // generate a class into above create div. and below use template literal.
                 const menuInfo = `
-                    <div id="${menuItem.idMeal}" onclick = 'MealDetails("${menuItem.idMeal}")' class="card meal-item" style="width: 22rem;">
+                    <div id="${menuItem.idMeal}" onclick = 'MealDetails("${menuItem.idMeal}")' class="card meal-item">
                         <img src="${menuItem.strMealThumb}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <p class="card-text meal-name text-center text-uppercase">${menuItem.strMeal}</p>
