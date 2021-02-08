@@ -55,6 +55,7 @@ const MealDetails = (id) => {
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             const displayDetails = document.getElementById('display-details-info');
 
             document.getElementById('show-img').src = data.meals[0].strMealThumb;   // Image show in specific menu item
@@ -67,7 +68,7 @@ const MealDetails = (id) => {
 
             countIngredient = 0;
             for (i = 1; i <= 20; i++) {         // Given maximum 20 ingredients individual meal item.
-                if (data['meals']['0'][`strIngredient${i}`] == "") {    // if ingredient field empty then break and we get total 
+                if ((data['meals']['0'][`strIngredient${i}`] == "") || (data['meals']['0'][`strMeasure${i}`] == "")) {    // if ingredient field empty then break and we get total 
                     break;                                              // given ingredient number.
                 }
                 countIngredient++;              // Every time 'countIngredient' increment by 1 until terminating the loop.
