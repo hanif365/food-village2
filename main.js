@@ -68,8 +68,8 @@ const MealDetails = (id) => {
 
             countIngredient = 0;
             for (i = 1; i <= 20; i++) {         // Given maximum 20 ingredients individual meal item.
-                if ((data['meals']['0'][`strIngredient${i}`] == "") || (data['meals']['0'][`strMeasure${i}`] == "")) {    // if ingredient field empty then break and we get total 
-                    break;                                              // given ingredient number.
+                if ((data['meals']['0'][`strIngredient${i}`] == "") || (data['meals']['0'][`strMeasure${i}`] == "")) {     
+                    break;      // if ingredient field empty then break and we get total given ingredient number.
                 }
                 countIngredient++;              // Every time 'countIngredient' increment by 1 until terminating the loop.
             }
